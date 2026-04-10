@@ -60,8 +60,8 @@
       </div>
 
       <ul class="space-y-3">
-        <li v-for="(link, id) in acc.ls" :key="id" v-if="link.l && link.u">
-          <a :href="link.u" target="_blank" rel="noopener noreferrer">
+        <li v-for="(link, id) in acc.ls" :key="id">
+          <a :href="link.u" target="_blank" rel="noopener noreferrer" v-if="link.l && link.u">
             <div class="flex items-center space-x-3 bg-white/75 border border-white/90 rounded-2xl p-3 shadow-sm shadow-teal-300/20 hover:bg-white/90 transition-colors">
               <div class="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 border border-teal-100 text-teal-600">
                 <icon v-if="link.i" :name="link.i" class="h-5 w-5" />

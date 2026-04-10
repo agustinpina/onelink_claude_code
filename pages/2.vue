@@ -13,7 +13,11 @@
 import { decodeData } from "../utils/transformer";
 const route = useRoute();
 const acc = route.query.data;
-const decodedData = ref({});
-decodedData.value = decodeData(acc);
+const decodedData = ref(null);
+try {
+  decodedData.value = decodeData(acc);
+} catch (e) {
+  decodedData.value = null;
+}
 </script>
 <style scoped></style>
