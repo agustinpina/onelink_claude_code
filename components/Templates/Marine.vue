@@ -7,7 +7,7 @@
           v-if="acc.i"
           class="h-20 w-20 rounded-full overflow-hidden ring-4 ring-white/70 shadow-lg shadow-cyan-200/50 mx-auto"
         >
-          <img :src="acc.i" alt="name" class="h-full w-full object-cover" />
+          <img :src="acc.i" :alt="acc.n" class="h-full w-full object-cover" />
         </div>
         <h1 v-if="acc.n" class="text-xl font-semibold tracking-tight mt-4 text-teal-800">
           {{ acc.n }}
@@ -60,8 +60,8 @@
       </div>
 
       <ul class="space-y-3">
-        <li v-for="(link, id) in acc.ls" :key="id">
-          <nuxt-link :to="link.u" target="_blank" v-if="link.l && link.u">
+        <li v-for="(link, id) in acc.ls" :key="id" v-if="link.l && link.u">
+          <a :href="link.u" target="_blank" rel="noopener noreferrer">
             <div class="flex items-center space-x-3 bg-white/75 border border-white/90 rounded-2xl p-3 shadow-sm shadow-teal-300/20 hover:bg-white/90 transition-colors">
               <div class="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 border border-teal-100 text-teal-600">
                 <icon v-if="link.i" :name="link.i" class="h-5 w-5" />
@@ -69,7 +69,7 @@
               </div>
               <p class="font-medium text-sm text-teal-800">{{ link.l }}</p>
             </div>
-          </nuxt-link>
+          </a>
         </li>
       </ul>
 
@@ -99,3 +99,5 @@ const allSocialLinksAreEmpty = computed(() => {
   );
 });
 </script>
+
+<style scoped></style>
